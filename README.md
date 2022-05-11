@@ -84,6 +84,15 @@ Create a new seat in the seats table
 	
 }
 
+If "pos" is an empty string:
+
+{
+
+    "statusCode": 404,
+    "statusDescription": "Pos must not be empty",
+    "data": null
+	
+}
 
 ##### Validation example:
 
