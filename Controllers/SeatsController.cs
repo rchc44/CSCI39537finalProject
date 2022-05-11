@@ -47,9 +47,15 @@ namespace FinalProject.Controllers
         [HttpPost]
         public async Task<ActionResult<Response>> PostSeat(Seat seat)
         {
+            Response res = new Response();
+            if (String.IsNullOrEmpty(seat.Pos))
+            {
+                res.StatusCode = 404;
+                res.StatusDescription = "Pos must not be empty";
+                return res;
+            }
             _context.Seats.Add(seat);
             await _context.SaveChangesAsync();
-            Response res = new Response();
             res.StatusCode = 200;
             res.StatusDescription = "Seat successfully created";
             return res;
